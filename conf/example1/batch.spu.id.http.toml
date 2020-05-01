@@ -1,0 +1,25 @@
+
+
+[action.requestBatchProductInfo]
+type = "http.get"
+log = "a.log"
+url = "http://127.0.0.1:9090/api/kxusers"
+
+trigger = "cron"
+second = "*/5"
+
+[action.b]
+type = "json.check"
+assert_path = "data.list"
+assert_type = "array"
+
+
+
+[action.requestBatchSkuInfo]
+type = "http.get"
+url = "http://127.0.0.1:9090/api/kxusers"
+log = "b.log"
+trigger = "cron"
+minute = "*/2"
+
+

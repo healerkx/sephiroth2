@@ -1,0 +1,14 @@
+
+df = 1
+g = 1   #写在这个位置的是全局变量
+# as requires need no section-name
+requires = ["batch.spu.id.http.toml"]
+
+[actions]
+sequence = ["c", "requestBatchProductInfo"]
+sched.params.second = "*/5"
+sched.params.trigger='cron'
+
+[action.c]
+type="example"
+value = [1, 2]
